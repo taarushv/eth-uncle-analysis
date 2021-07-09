@@ -59,7 +59,8 @@ const main = async() => {
                 parentHash,
                 hasUncle,
                 coinbaseDiff,
-                coinbaseAddress
+                coinbaseAddress,
+                timestamp: block.timestamp
             }).write()
             db.update('blocksCount', n => n + 1).write()
     
@@ -86,10 +87,10 @@ const main = async() => {
                 }
             }
         }catch(error){
-            // log errors incase rpc breaks halfway through
+            // log errors incase rpc breaks halfway through and we need to rerun for those
             errorDB.get('errors').push({
                 blockNo: i,
-                error: error
+                error: error.message
             }).write()
             errorDB.update('count', n => n + 1).write()
         }

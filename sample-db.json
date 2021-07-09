@@ -1,18 +1,10 @@
 {
   "blocks": [
     {
-      "blockNo": 12793798,
-      "blockHash": "0xac1753f1c834e146513763ab4ffaf99921f7effcf9d14d48bedceb8d016b7932",
-      "parentHash": "0x1c05f1bd4d0a9f0fcfa27ffbedb440835de9276550a7f7276b62d6b8d3e217d5",
-      "isUncle": false,
-      "coinbaseDiff": 2.6243037715819817,
-      "coinbaseAddress": "0x99c85bb64564d9ef9a99621301f22c9993cb89e3"
-    },
-    {
       "blockNo": 12793799,
       "blockHash": "0x2b1de51ec52bd730919643ccad37c403c6a1368ae8050c208cbe0565566e1b08",
       "parentHash": "0xac1753f1c834e146513763ab4ffaf99921f7effcf9d14d48bedceb8d016b7932",
-      "isUncle": true,
+      "hasUncle": true,
       "coinbaseDiff": 2.7334843566187863,
       "coinbaseAddress": "0x1ad91ee08f21be3de0ba2ba6918e714da6b45836"
     },
@@ -20,18 +12,19 @@
       "blockNo": 12793800,
       "blockHash": "0x4fd766fbe5dce8644f96bef4114774c40541953bb9c25b3a34df1c2e3eeb961c",
       "parentHash": "0x2b1de51ec52bd730919643ccad37c403c6a1368ae8050c208cbe0565566e1b08",
-      "isUncle": false,
+      "hasUncle": false,
       "coinbaseDiff": 2.548457950832056,
       "coinbaseAddress": "0x00192fb10df37c9fb26829eb2cc623cd1bf599e8"
     }
   ],
   "uncles": [
     {
+      "uncleBlockHash": "0xcff26812caff308e877a9e0aadd12f4ec96ae7a21d7f606fdca099fa6f5509bd",
       "uncleBlockTargetNo": 12793798,
       "uncleBlockIncludedAt": 12793799,
       "uncleTxCount": 199
     }
   ],
-  "blocksCount": 3,
+  "blocksCount": 2,
   "unclesCount": 1
 }

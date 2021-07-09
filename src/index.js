@@ -47,25 +47,25 @@ const main = async() => {
             const block = await provider.send("eth_getBlockByNumber", [blockNo, true])
             const blockHash = block.hash
             const parentHash = block.parentHash
-            const isUncle = block.uncles.length > 0
+            const hasUncle = block.uncles.length > 0
             const coinbaseAddress = block.miner
             const coinbaseDiff = await getCoinbaseDiff(coinbaseAddress, blockNo)
     
             // insert into json
-            // block, blockHash, parentHash, isUncle?, coinbaseDiff, coinbaseAddress
+            // block, blockHash, parentHash, hasUncle?, coinbaseDiff, coinbaseAddress
             db.get('blocks').push({
                 blockNo,
                 blockHash,
                 parentHash,
-                isUncle,
+                hasUncle,
                 coinbaseDiff,
                 coinbaseAddress
             }).write()
             db.update('blocksCount', n => n + 1).write()
     
             console.log(`Block #: ${blockNo}`)
-            console.log(`isUncle?: ${isUncle}`)
-            if(isUncle){
+            console.log(`hasUncle?: ${hasUncle}`)
+            if(hasUncle){
                 // A block can have upto 2 uncles, map over to account that
                 for(var j=0;j<block.uncles.length;j++){
                     const blockHash = block.uncles[j]
@@ -74,10 +74,11 @@ const main = async() => {
                     console.log(chalk.red(`# of txs in uncle: ${uncleBlock.transactions.length}`))
                     // write uncle data into json
                     db.get('uncles').push({
+                        uncleBlockHash: blockHash,
                         uncleBlockTargetNo: parseInt(uncleBlock.number),
                         uncleBlockIncludedAt: blockNo,
                         uncleTxCount: uncleBlock.transactions.length
-                        // , uncleBlockContent: uncleBlock ()
+                        // , uncleBlockContent: uncleBlock 
                         // ^uncomment this when you want uncle tx data to simulate
                         // removing for now to avoid json size growing too much
                     }).write()

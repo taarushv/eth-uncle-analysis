@@ -60,7 +60,7 @@ const main = async() => {
                 hasUncle,
                 coinbaseDiff,
                 coinbaseAddress,
-                timestamp: block.timestamp
+                timestamp: parseInt(block.timestamp)
             }).write()
             db.update('blocksCount', n => n + 1).write()
     

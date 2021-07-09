@@ -1,0 +1,16 @@
+{
+  "name": "eth-uncle-analysis",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/taarushv/eth-uncle-analysis.git",
+  "author": "Taarush Vemulapalli <saikarthiktaarush.vemulapalli@sjsu.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "ethers": "^5.4.1",
+    "lowdb": "1.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
